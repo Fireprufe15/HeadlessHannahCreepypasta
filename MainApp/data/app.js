@@ -1,6 +1,7 @@
 var canPressEnter = false;
 
-var nextline = function(username, message){
+var storyIndex = 0;
+var nextline = function(type, username, message){
 
     var container = document.getElementById('lineContainer');
     var prompt = document.getElementById('prompt');
@@ -10,6 +11,11 @@ var nextline = function(username, message){
     node.textContent = username+" is writing";
     container.appendChild(node);
     window.scrollTo(0,document.body.scrollHeight);
+
+    if (type == "expo"){
+        node.textContent = message;
+        return;
+    }
 
     prompt.style.visibility = "hidden";
     canPressEnter = true;
@@ -31,6 +37,8 @@ var nextline = function(username, message){
 
 document.addEventListener("keydown", function (e) {
     if (e.keyCode === 13 && !canPressEnter){
-        nextline("test", "test");
+        var curr = storyItems[storyIndex];
+        nextline(curr.type, curr.sender, curr.message);
+        storyIndex++;
     }
 });
