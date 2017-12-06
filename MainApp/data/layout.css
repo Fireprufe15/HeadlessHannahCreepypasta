@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+}
+
+#messageElement{
+    color: white;
+    text-align: center;
+    font-size: larger;
+    width: 60%;
+    margin: 20px auto 20px;
+    outline: darkcyan dashed;
+    padding: 10px;
+}
+
+#prompt{
+    color: lightgray;
+    text-align: center;
+    font-size: xx-large;
+}
