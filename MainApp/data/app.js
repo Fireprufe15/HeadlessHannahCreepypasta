@@ -1,6 +1,6 @@
 var canPressEnter = false;
 var enterMethod = "Press enter";
-var width = "60%";
+var width = "40%";
 var storyIndex = 0;
 var nextline = function(type, username, message){
 
@@ -37,11 +37,19 @@ var nextline = function(type, username, message){
         node.textContent = message;
         prompt.style.visibility = "visible";
         canPressEnter = false;
+        if (storyIndex >= storyItems.length) { prompt.textContent = "THE END......or is it? (Yes, it is)." }
     }, (message.length/10)*1000);
 };
 
 document.addEventListener("keydown", function (e) {
     if (e.keyCode === 13 && !canPressEnter){
+        var curr = storyItems[storyIndex];
+        nextline(curr.type, curr.sender, curr.message);
+        storyIndex++;
+    }
+});
+document.addEventListener("touchstart", function (e) {
+    if (!canPressEnter){
         var curr = storyItems[storyIndex];
         nextline(curr.type, curr.sender, curr.message);
         storyIndex++;
