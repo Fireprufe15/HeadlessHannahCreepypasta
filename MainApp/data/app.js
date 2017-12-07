@@ -34,7 +34,7 @@ var nextline = function(type, username, message){
 
     setTimeout(function(){
         window.clearInterval(writingAnimation);
-        node.textContent = message;
+        node.textContent = username+": "+message;
         prompt.style.visibility = "visible";
         canPressEnter = false;
         if (storyIndex >= storyItems.length) { prompt.textContent = "THE END......or is it? (Yes, it is)." }

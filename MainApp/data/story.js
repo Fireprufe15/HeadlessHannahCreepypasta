@@ -9,7 +9,7 @@ var storyItems = [
     },
     {
         type: "msg",
-        sender:"Ebony",
+        sender:"Dan",
         message: "Hey how are you?"
     },
     {
@@ -19,7 +19,7 @@ var storyItems = [
     },
     {
         type: "msg",
-        sender: "Ebony",
+        sender: "Dan",
         message: "LOL don't joke like that!"
     },
     {
@@ -29,7 +29,7 @@ var storyItems = [
     },
     {
         type: "msg",
-        sender:"Ebony",
+        sender:"Dan",
         message: "WHAT THE FU"
     }
 ];
