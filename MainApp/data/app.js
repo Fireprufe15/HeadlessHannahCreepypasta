@@ -2,7 +2,12 @@ var canPressEnter = false;
 var enterMethod = "Press enter";
 var width = "40%";
 var storyIndex = 0;
-var nextline = function(type, username, message){
+var shouldPlay = true;
+var musicPlayer = document.getElementById('musicPlayer');
+musicPlayer.volume = 0.04;
+
+
+var nextline = function(type, username, message, trigger){
 
     var container = document.getElementById('lineContainer');
     var prompt = document.getElementById('prompt');
@@ -17,8 +22,22 @@ var nextline = function(type, username, message){
     container.appendChild(outerNode);
     window.scrollTo(0,document.body.scrollHeight);
 
+    if (trigger == "musicStart" && shouldPlay == true){
+        musicPlayer.play();
+    }
+
     if (type == "expo"){
         node.textContent = message;
+        if (trigger == "askSound"){
+            var soundYNode = document.createElement("BUTTON");
+            soundYNode.innerHTML = "YES";
+            soundYNode.onclick = playSound;
+            node.appendChild(soundYNode);
+            var soundNNode = document.createElement("BUTTON");
+            soundNNode.innerHTML = "NO";
+            soundNNode.onclick = muteSound;
+            node.appendChild(soundNNode);
+        }
         return;
     }
 
@@ -38,23 +57,34 @@ var nextline = function(type, username, message){
         prompt.style.visibility = "visible";
         canPressEnter = false;
         if (storyIndex >= storyItems.length) { prompt.textContent = "THE END......or is it? (Yes, it is)." }
-    }, (message.length/10)*1000);
+    }, (message.length/15)*1000);
 };
 
 document.addEventListener("keydown", function (e) {
     if (e.keyCode === 13 && !canPressEnter){
         var curr = storyItems[storyIndex];
-        nextline(curr.type, curr.sender, curr.message);
+        nextline(curr.type, curr.sender, curr.message, curr.trigger);
         storyIndex++;
     }
 });
 document.addEventListener("touchstart", function (e) {
     if (!canPressEnter){
         var curr = storyItems[storyIndex];
-        nextline(curr.type, curr.sender, curr.message);
+        nextline(curr.type, curr.sender, curr.message, curr.trigger);
         storyIndex++;
     }
 });
+
+var muteSound = function(){
+    shouldPlay = false;
+    musicPlayer.pause();
+};
+var playSound = function(){
+    shouldPlay = true;
+    if (mobileAndTabletcheck()){
+        musicPlayer.play();
+    }
+};
 
 window.mobileAndTabletcheck = function() {
     var check = false;

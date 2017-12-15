@@ -1,12 +1,23 @@
 var storyItems = [
     {
         type: "expo",
+        message:"Written by a Secret Santa, for /u/Creedismyhero"
+    },
+    {
+        type: "expo",
+        message:"Reading with sound (preferably headphones) is recommended, however, it is not mandatory (and if you are on mobile probably wont work). " +
+        "Do you want sound?   ",
+        trigger: "askSound"
+    },
+    {
+        type: "expo",
         message:"In the year 2017, ten teenagers attending a school camp entered a forest. " +
         "Witnesses say that they were terrified of something, running screaming into the forest. " +
         "They were never seen again. Investigators, while searching for the missing students, weren't able to find anything " +
         "or anyone. One person, who was not at the camp, handed a chat log over to the detectives. She claims that she was " +
         "talking to one of the teens who went missing. " +
-        "This is that chat log..."
+        "This is that chat log...",
+        trigger: "musicStart"
     },
     {
         type: "msg",
