@@ -4,7 +4,8 @@ var width = "40%";
 var storyIndex = 0;
 var shouldPlay = true;
 var musicPlayer = document.getElementById('musicPlayer');
-musicPlayer.volume = 0.04;
+musicPlayer.volume = 0.05;
+var sfxPlayer = document.getElementById('sfxPlayer');
 
 
 var nextline = function(type, username, message, trigger){
@@ -24,6 +25,12 @@ var nextline = function(type, username, message, trigger){
 
     if (trigger == "musicStart" && shouldPlay == true){
         musicPlayer.play();
+    }
+    if (trigger == "playFootsteps"){
+        sfxPlayer.play();
+        setTimeout(function(){
+            sfxPlayer.pause();
+        }, 3000);
     }
 
     if (type == "expo"){
@@ -57,7 +64,7 @@ var nextline = function(type, username, message, trigger){
         prompt.style.visibility = "visible";
         canPressEnter = false;
         if (storyIndex >= storyItems.length) { prompt.textContent = "THE END......or is it? (Yes, it is)." }
-    }, (message.length/15)*1000);
+    }, (message.length/12)*1000);
 };
 
 document.addEventListener("keydown", function (e) {

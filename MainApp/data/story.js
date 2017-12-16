@@ -108,7 +108,7 @@ var storyItems = [
     {
         type: "msg",
         sender:"Sarah",
-        message: "its some creepy chick in a white sheet"
+        message: "its some creepy girl in a white sheet"
     },
     {
         type: "msg",
@@ -164,5 +164,16 @@ var storyItems = [
         type: "msg",
         sender:"Sarah",
         message: "i heard a scream...I think Henry is dead."
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "I can hear footsteps....",
+        trigger: "playFootsteps"
+    },
+    {
+        type: "msg",
+        sender:"Lena",
+        message: "stay quiet! don't even breathe!"
     },
 ];
