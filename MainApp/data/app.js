@@ -4,7 +4,7 @@ var width = "40%";
 var storyIndex = 0;
 var shouldPlay = true;
 var musicPlayer = document.getElementById('musicPlayer');
-musicPlayer.volume = 0.05;
+musicPlayer.volume = 0.08;
 var sfxPlayer = document.getElementById('sfxPlayer');
 
 
@@ -14,12 +14,21 @@ var nextline = function(type, username, message, trigger){
     var prompt = document.getElementById('prompt');
 
     var node = document.createElement("DIV");
+    var nameSpan = document.createElement("SPAN");
+    var textSpan = document.createElement("SPAN");
     var outerNode = document.createElement("DIV");
+    if (username == "Sarah"){
+        nameSpan.style.color = "#FF0000";
+    }else{
+        nameSpan.style.color = "#00FF00";
+    }
     outerNode.appendChild(node);
+    node.appendChild(nameSpan);
+    node.appendChild(textSpan);
     prompt.innerHTML = enterMethod+" to continue...";
     node.id = "messageElement";
-    node.textContent = username+" is writing";
-    node.style.width = width;
+    textSpan.textContent = username+" is writing";
+    textSpan.style.width = width;
     container.appendChild(outerNode);
     window.scrollTo(0,document.body.scrollHeight);
 
@@ -30,11 +39,11 @@ var nextline = function(type, username, message, trigger){
         sfxPlayer.play();
         setTimeout(function(){
             sfxPlayer.pause();
-        }, 3000);
+        }, 4000);
     }
 
     if (type == "expo"){
-        node.textContent = message;
+        textSpan.textContent = message;
         if (trigger == "askSound"){
             var soundYNode = document.createElement("BUTTON");
             soundYNode.innerHTML = "YES";
@@ -43,7 +52,7 @@ var nextline = function(type, username, message, trigger){
             var soundNNode = document.createElement("BUTTON");
             soundNNode.innerHTML = "NO";
             soundNNode.onclick = muteSound;
-            node.appendChild(soundNNode);
+            textSpan.appendChild(soundNNode);
         }
         return;
     }
@@ -51,19 +60,20 @@ var nextline = function(type, username, message, trigger){
     prompt.style.visibility = "hidden";
     canPressEnter = true;
     var writingAnimation = setInterval(function () {
-        if (node.textContent.slice(-3) == "..."){
-            node.textContent =  username+" is writing";
+        if (textSpan.textContent.slice(-3) == "..."){
+            textSpan.textContent =  username+" is writing";
         }else{
-            node.textContent += '.';
+            textSpan.textContent += '.';
         }
     }, 300);
 
     setTimeout(function(){
         window.clearInterval(writingAnimation);
-        node.textContent = username+": "+message;
+        nameSpan.textContent = username+": ";
+        textSpan.textContent = message;
         prompt.style.visibility = "visible";
         canPressEnter = false;
-        if (storyIndex >= storyItems.length) { prompt.textContent = "THE END......or is it? (Yes, it is)." }
+        if (storyIndex >= storyItems.length) { prompt.textContent = "THE END......or is it?" }
     }, (message.length/12)*1000);
 };
 

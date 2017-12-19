@@ -5,6 +5,10 @@ var storyItems = [
     },
     {
         type: "expo",
+        message:"Based on a story I was told a very long time ago..."
+    },
+    {
+        type: "expo",
         message:"Reading with sound (preferably headphones) is recommended, however, it is not mandatory (and if you are on mobile probably wont work). " +
         "Do you want sound?   ",
         trigger: "askSound"
@@ -163,7 +167,7 @@ var storyItems = [
     {
         type: "msg",
         sender:"Sarah",
-        message: "i heard a scream...I think Henry is dead."
+        message: "i heard a scream...I think someone is dead."
     },
     {
         type: "msg",
@@ -175,5 +179,116 @@ var storyItems = [
         type: "msg",
         sender:"Lena",
         message: "stay quiet! don't even breathe!"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "I think it is gone..."
+    },
+    {
+        type: "msg",
+        sender:"Lena",
+        message: "make sure before you move, it may be waiting"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "Can't see her or hear her, I think we're good."
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "I'm gonna make a run for it"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "coast seems to be clear. im running on 3"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "3"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "2"
+    },
+    {
+        type: "msg",
+        sender:"Lena",
+        message: "this is a terrible idea"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "1"
+    },
+    {
+        type: "msg",
+        sender:"Lena",
+        message: "Sarah?"
+    },
+    {
+        type: "msg",
+        sender:"Lena",
+        message: "Did you get away?"
+    },
+    {
+        type: "msg",
+        sender:"Lena",
+        message: "WHERE ARE YOU?"
+    },
+    {
+        type: "expo",
+        message:"Sarah didn't respond. Not for weeks. Detectives found nothing. The case went cold."
+    },
+    {
+        type: "expo",
+        message:"10 Weeks Later"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "Come get me"
+    },
+    {
+        type: "msg",
+        sender:"Lena",
+        message: "SARAH?! You are alive?? Is this some kind of sick joke?"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "I'm still in the forest. I'm stuck. Come save me."
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "Don't wait too long..."
+    },
+    {
+        type: "expo",
+        message:"THE END"
+    },
+    {
+        type: "expo",
+        message: "Credits: Music: Ghost Story by Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 3.0.  " +
+        "Sound Effects: Youtube SFX library.  Writing and Coding: Santa Clause"
+    },
+    {
+        type: "expo",
+        message: "Merry XMas from your Secret Santa"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "GrrrrRrhwaaaaaaaAAaaa"
+    },
+    {
+        type: "msg",
+        sender:"Sarah",
+        message: "Goodnight..........."
     },
 ];
